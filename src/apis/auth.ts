@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserData } from "../containers/SignupPage/InputContainer";
+import { UserData } from "../components/stepper/usersignup-details.component";
 
 export const signup = async (userData: UserData) => {
   const res = await axios.post(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/dbconnections/signup`, {

@@ -2,7 +2,7 @@ import { LanguageButton } from "../../components/Button/LanguageButton";
 
 export const ImageContainer = () => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full md:w-1/2 lg:w-1/2">
       <div className="sm:h-[100vh] h-[300px] overflow-hidden">
         <img
           className="sm:hidden w-screen h-[100%] relative object-center object-cover -z-0"
@@ -10,7 +10,7 @@ export const ImageContainer = () => {
         />
         <img
           className="hidden sm:block h-screen w-full object-cover object-center"
-          src="/assets/background-images/signup-desktop - Copy.jpg"
+          src="/assets/background-images/signup-page-image-rokk-register.jpeg"
         />
         <div className="absolute right-3 top-3 md:right-5 md:top-10 lg:hidden">
           <LanguageButton />

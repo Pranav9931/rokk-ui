@@ -10,6 +10,7 @@ interface PropTypes extends React.HtmlHTMLAttributes<unknown> {
       email: string;
       name: string;
       password: string;
+      confirmPassword: string;
       month: number;
       date: number;
       year: number;
@@ -22,10 +23,10 @@ interface PropTypes extends React.HtmlHTMLAttributes<unknown> {
 
 const formStyle = makeStyles({
   menu: {
-    height: 50,
+    height: 47,
     backgroundColor: "#2d2d2d",
-    width: 180,
     borderRadius: "50px",
+    minWidth: '150px'
   },
 });
 
@@ -34,43 +35,40 @@ export default function MenuInput({ field }: PropTypes): JSX.Element {
   const classes = formStyle();
 
   return (
-    <>
-      <Select
-        {...field}
-        variant="outlined"
-        required
-        fullWidth
-        value={month}
-        sx={{
-          borderRadius: "50px",
+    <Select
+      {...field}
+      variant="outlined"
+      required
+      fullWidth
+      value={month}
+      sx={{
+        borderRadius: "50px",
+        color: "white"
+      }}
+      className={classes.menu}
+      inputProps={{
+        style: {
+          borderRadius: 50,
           color: "white",
-          minWidth: 60,
-        }}
-        className={classes.menu}
-        inputProps={{
-          style: {
-            borderRadius: 50,
-            color: "white",
-          },
-        }}
-        onChange={(e) => {
-          setMonth(Number(e.target.value));
-          field.onChange(e);
-        }}>
-        {months.map((val, index) => {
-          return (
-            <MenuItem
-              key={index}
-              value={index + 1}
-              style={{
-                backgroundColor: "#161616",
-                color: "white",
-              }}>
-              {val}
-            </MenuItem>
-          );
-        })}
-      </Select>
-    </>
+        },
+      }}
+      onChange={(e) => {
+        setMonth(Number(e.target.value));
+        field.onChange(Number(e.target.value));
+      }}>
+      {months.map((val, index) => {
+        return (
+          <MenuItem
+            key={index}
+            value={index + 1}
+            style={{
+              backgroundColor: "#161616",
+              color: "white",
+            }}>
+            {val}
+          </MenuItem>
+        );
+      })}
+    </Select>
   );
 }

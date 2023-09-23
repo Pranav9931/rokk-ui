@@ -16,6 +16,9 @@ module.exports = {
       },
       colors,
     },
+    fontFamily: {
+      primary: ["var(--head-font)", "sans-serif"],
+    },
   },
   important: "#root",
   plugins: [],

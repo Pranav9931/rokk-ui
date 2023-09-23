@@ -5,11 +5,14 @@ import { CardsContainer } from "./CardsContainer";
 import { Button, MenuItem, Select } from "@mui/material";
 import { ProfileButton } from "../../components/Button/ProfileButton";
 import { Artist, fetchArtists } from "../../apis/artist";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ArtistPage = () => {
   const [artists, setArtists] = useState<Artist[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPage, setTotalPage] = useState(10000);
+  const { user } = useAuth0();
+  // console.log(user)
 
   useEffect(() => {
     loadMore();
